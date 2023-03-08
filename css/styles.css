@@ -14,17 +14,22 @@ body {
 
 #Footer a:hover,
 .Enlaces a:hover {
-    scale: 1.2;
+    transform: scale(1.2);
     transition: ease-in-out 0.5s;
     filter: drop-shadow(0 0 0.75rem var(--gamboge));
 }
 
 /*----------TEXTO----------*/
-h1{
+h1, span{
     font-size: 5rem;
     font-family: 'Teko', sans-serif;
 }
-h1,
+
+h2{
+    font-size: 3rem;
+    font-family: 'Teko', sans-serif;
+}
+h1,span,
 h2,
 h3,
 h4 {
@@ -33,7 +38,8 @@ h4 {
 }
 
 h5 {
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.5rem;
     font-family: 'Orienta', sans-serif;
 }
 
@@ -81,8 +87,7 @@ p {
     border-radius: 5px;
 
     background: linear-gradient(var(--eggshell) 0 0) no-repeat calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.08em);
-    transition: 0.3s var(--t, 0s),
-        background-position 0.3s calc(0.3s - var(--t, 0s));
+    transition: 0.3s var(--t, 0s), background-position 0.3s calc(0.3s - var(--t, 0s));
 }
 
 .Hover:hover {
@@ -123,7 +128,16 @@ body#Index {
     width: 100vw;
     background-repeat: no-repeat;
     background-position: center center;
+    
 }
+
+/* .Principal h1, .Principal h6{
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    display:inline-table;
+    padding-left: 10px;
+    padding-right: 10px;  
+}  */
 
 .Fondo1 {
     background-image: url("../img/home/6.jpg");
@@ -137,6 +151,7 @@ body#Index {
     -webkit-background-size: cover;
     opacity: 0;
     transition: ease-in-out 1.5s;
+    filter:brightness(80%);
 }
 
 .Fondo3 {
@@ -211,6 +226,7 @@ body#Index {
 
 .card-img {
     background: url("../img/home/9.png") center center/cover no-repeat;
+    border-radius: 1rem 0 0 1rem;
 }
 
 .banner h2 {
@@ -221,6 +237,7 @@ body#Index {
 .card-content {
     background: #fff;
     height: 330px;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .card-content h3 {
@@ -255,18 +272,21 @@ form input[type=text],
 form input[type=number],
 form input::placeholder,
 select {
-    color: #9a9a9a;
+    color: #494949;
 }
 
 form input[type=submit] {
     color: #fff;
-    background: var(--rust);
+    background: linear-gradient(to right,var(--persian-orange) 0%,var(--rust) 100%);
     padding: 12px 0;
     border-radius: 4px;
+    transition: ease-in-out 0.3s;
 }
 
 form input[type=submit]:hover {
     opacity: 0.9;
+    box-shadow: 0px 0px 10px var(--persian-orange);
+    transition: ease-in-out 0.3s;
 }
 
 .Isometrica {
@@ -281,7 +301,7 @@ form input[type=submit]:hover {
 .Isometrica img:hover {
     opacity: 0.1;
     transition: ease-in-out 1s;
-    scale: 0.9;
+    transform: scale( 0.9);
 }
 
 .Isometrica:hover .ImageText {
@@ -319,6 +339,22 @@ form input[type=submit]:hover {
 
 
 /*----------ABOUT----------*/
+
+.CTA .btn{
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 20px;
+    background: linear-gradient(to right,var(--persian-orange) 0%,var(--rust) 100%);
+    border:none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.444);
+    transition: ease-in-out 0.3s;
+}
+
+.CTA .btn:hover{
+    transform: scale(1.1)!important;
+    background: linear-gradient(to left,var(--persian-orange) 0%,var(--rust) 100%);
+    transition: ease-in-out 0.5s!important;
+}
 
 .carousel-item {
     height: 60vh;
@@ -416,7 +452,13 @@ form input[type=submit]:hover {
     transition: ease-in-out 0.5s;
 }
 
+#Footer a{
+    color: black;
+}
 
+iframe{
+    width: 100%;
+}
 
 /*FROM MD TO 1920px*/
 @media (max-width: 1920px) {}
@@ -424,7 +466,7 @@ form input[type=submit]:hover {
 /*FROM SM TO MD*/
 @media (max-width: 992px) {
 
-    h1 {
+    h1,span {
         font-size: 2rem;
     }
 
@@ -536,12 +578,15 @@ form input[type=submit]:hover {
         column-count: 3;
         column-gap: 20px;
     }
+    .card-img, .card-content{
+        border-radius: 0;
+    }
 
 }
 
 /*TABLET FORMAT*/
 @media only screen and (min-height: 1020px) and (max-width: 820px) {
-    h1 {
+    h1,span {
         font-size: 3rem;
     }
 
@@ -582,6 +627,9 @@ form input[type=submit]:hover {
     .Equipo p {
         font-size: 1.3rem;
     }
+    .card-img, .card-content{
+        border-radius: 0;
+    }
 
 }
 
@@ -598,6 +646,25 @@ form input[type=submit]:hover {
 
     .nav-item {
         text-align: center;
+    }
+    /* body#Index {
+  
+        background-image: none;   
+    } */
+    #Footer {
+        background-color: #515050!important;
+        position: fixed;
+        bottom: 0;
+        height: 8vh;
+        color: white;
+        align-items: center;
+    }
+    #Footer a{
+        color: white;
+        font-size: 2rem;
+    }
+    .card-img, .card-content{
+        border-radius: 0;
     }
 }
 
